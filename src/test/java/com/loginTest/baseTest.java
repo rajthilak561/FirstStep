@@ -3,6 +3,7 @@ package com.loginTest;
 //import com.beust.jcommander.IDefaultProvider;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -18,6 +19,8 @@ public class baseTest {
 
         switch (BrowserName) {
             case "chrome":
+                ChromeOptions options =new ChromeOptions();
+                options.addArguments(("--remote-debugging-port=9222"));
                 driver = new ChromeDriver();
                 break;
             case "firefox":
