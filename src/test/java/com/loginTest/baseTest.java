@@ -5,10 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Collections;
 
 public class baseTest {
@@ -17,18 +21,22 @@ public class baseTest {
 
     @Parameters({"browser"})
     @BeforeTest
-    public void setUp(String BrowserName) {
+    public void setUp(String BrowserName) throws MalformedURLException {
 
         switch (BrowserName) {
             case "chrome":
-                //System.setProperty("webdriver.chrome.driver", "src/test/Resources/chromedriver.exe");
 
                 ChromeOptions options =new ChromeOptions();
                 //options.addArguments("start-maximized");
                 //options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
                 //options.setExperimentalOption("useAutomationExtension", false);
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability("browserName", "chrome");
+                capabilities.setCapability("enableVNC", true);
+                capabilities.setCapability("enableVideo", false);
+                 driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
 
-                driver = new ChromeDriver(options);
+                //driver = new ChromeDriver(options);
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
