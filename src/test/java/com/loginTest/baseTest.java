@@ -9,6 +9,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
+import java.util.Collections;
+
 public class baseTest {
 
     protected WebDriver driver;
@@ -19,8 +21,13 @@ public class baseTest {
 
         switch (BrowserName) {
             case "chrome":
+                System.setProperty("webdriver.chrome.driver", "C:\\Users\\athir\\Downloads\\chromedriverfile\\chromedriver.exe");
+
                 ChromeOptions options =new ChromeOptions();
-                options.addArguments(("--remote-debugging-port=9222"));
+                options.addArguments("start-maximized");
+                options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+                options.setExperimentalOption("useAutomationExtension", false);
+
                 driver = new ChromeDriver();
                 break;
             case "firefox":
