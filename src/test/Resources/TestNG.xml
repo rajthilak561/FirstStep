@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Practice Suite">
+<suite name="Practice Suite" thread-count="1" parallel="tests">
 
     <test name="Test Basics 1">
         <parameter name="browser" value="chrome"/>
-
         <classes>
-            <class name="com.loginTest.Logintestcls"/>
+            <class name="com.loginTest.Logintests"/>
         </classes>
     </test> <!-- Test -->
 
     <test name="Test Basics 2">
-        <parameter name="emailid" value="tester789@gmail.com"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.loginTest.Logintestcls"/>
+            <class name="com.loginTest.Logintests"/>
         </classes>
-
     </test> <!-- Test -->
 </suite> <!-- Suite -->
