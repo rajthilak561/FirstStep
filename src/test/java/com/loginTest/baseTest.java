@@ -21,7 +21,7 @@ public class baseTest {
 
         switch (BrowserName) {
             case "chrome":
-                System.setProperty("webdriver.chrome.driver", "src/test/Resources/chromedriver.exe");
+              //  System.setProperty("webdriver.chrome.driver", "src/test/Resources/chromedriver.exe");
 
                 ChromeOptions options =new ChromeOptions();
                 options.addArguments("start-maximized");
