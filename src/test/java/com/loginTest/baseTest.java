@@ -21,14 +21,14 @@ public class baseTest {
 
         switch (BrowserName) {
             case "chrome":
-                System.setProperty("webdriver.chrome.driver", "C:\\Users\\athir\\Downloads\\chromedriverfile\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "C:/Users/athir/Downloads/chromedriverfile/chromedriver");
 
                 ChromeOptions options =new ChromeOptions();
                 options.addArguments("start-maximized");
                 options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
                 options.setExperimentalOption("useAutomationExtension", false);
 
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
                 break;
             case "firefox":
                 driver = new FirefoxDriver();
